@@ -1,0 +1,43 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <div class="sidenav">
+        <p style="padding:18px; color: #000000; font-size: 22px; font-weight: lighter">Categories</p>
+        <a href="{% url 'index' %}">All</a>
+        <a href="{% url 'category' 'BOOKS'%}">Books</a>
+        <a href="{% url 'category' 'ELECTRONICS'%}">Electronics</a>
+        <a href="{% url 'category' 'FASHIONS'%}">Fashions</a>
+        <a href="{% url 'category' 'HOME'%}">Home</a>
+        <a href="{% url 'category' 'GAMES'%}">Games & Toys</a>
+    </div>
+
+    <div class="text-center offset-md-2 mb-4"><h2 style="font-weight: lighter;">{{ category }}</h2></div>
+
+
+
+
+    <div class="row offset-md-2 mr-1">
+
+    {% for listing in listings %}
+        <div class="col-sm-4">
+
+            <div class="card border-0 m-3">
+                <div class="header">
+                      <img src="{{listing.image}}" class="img-fit" alt="{{listing.title}}" style="height:330px; width:100%">
+                </div>
+                <div class="card-body">
+                    <a href="/listing/{{listing.title}}" style="color: #000000;"><h4>{{listing.title}}</h4></a>
+                    <p>{{listing.description}}</p>
+                    <h6>Current Price: ${{listing.price}}.00</h6>
+                    <!--<a class="btn btn-secondary" href="/listing/{{listing.title}}" role="button">Bid</a>-->
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}
+    </div>
+
+
+
+{% endblock %}

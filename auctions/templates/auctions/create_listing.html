@@ -1,0 +1,70 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}\
+
+    <div class="container text-center">
+        <p style="font-size: 20px">Create Your Listing</p>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <div class="row mt-4 mb-4 justify-content-md-center">
+                <div class="col-2 text-right">
+                    <label>Title: </label>
+                </div>
+
+                <div class="col-4">
+                    {{ form.title}}
+                </div>
+            </div>
+
+            <div class="row mb-4 justify-content-md-center">
+                <div class="col-2 text-right">
+                    <label>Description: </label>
+                </div>
+
+                <div class="col-4">
+                    {{ form.description }}
+                </div>
+            </div>
+
+            <div class="row mb-4 justify-content-md-center">
+                <div class="col-2 text-right">
+                    <label>Image URL: </label>
+                </div>
+
+                <div class="col-4">
+                    {{ form.image }}
+                </div>
+            </div>
+
+            <div class="row mb-4 justify-content-md-center">
+                <div class="col-2 text-right">
+                    <label>Starting Bid: </label>
+                </div>
+
+                <div class="col-4">
+                    {{ form.start_bid }}
+                </div>
+            </div>
+
+            <div class="row justify-content-md-center">
+                <div class="col-2 text-right">
+                    <label>Category: </label>
+                </div>
+
+                <div class="col-4 text-left">
+                    {{ form.category }}
+                    <br>
+                    <button type="submit" class="btn btn-dark">Save Listing</button>
+                </div>
+            </div>
+
+
+
+
+        </form>
+    </div>
+
+
+
+{% endblock %}
